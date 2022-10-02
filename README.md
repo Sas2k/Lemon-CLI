@@ -68,17 +68,97 @@ components/
   
   A base app in Lemon.
 
+```python
+from Lemon.components import Component
+from Lemon.Server import server
+
+Root = Component("App")
+App = server.Server(None)
+
+class Index(Component):
+    name = "Index"
+    def item(props: dict):
+        return "<h1>Hello World!</h1>"
+
+Root.add(Index)
+
+@App.route("/")
+def index(request, response):
+    response.text = Root.render("<Index/>")
+
+App.run()
+```
+
 - #### Form
   
   A basic form.
+
+```python
+from Lemon.components import Component
+from Lemon.ui.forms import FormControl
+
+class Form(Component):
+    name = "Form"
+
+    def item(props: dict):
+        return """
+        <form>
+            <div class="form-group">
+                <Input type="text" id="TextInput" text="Text Input:" placeholder="placeholder"/>
+                <Select id="SelectInput" text="Select Input:" options="Option 1,Option 2,Option 3"//>
+                <Checkbox id="CheckboxInput" text="Checkbox Input"/>
+                <Submit id="SubmitButton" text="Submit"/>
+            </div>
+        </form>
+        """
+
+components = [Form, FormControl().components]
+```
 
 - #### EmailPassword
 
   A form asking for Email and Password.
 
+```python
+from Lemon.components import Component
+from Lemon.ui.forms import FormControl
+
+class EmailPassword(Component):
+    name = "EmailPassword"
+
+    def item(props: dict):
+        return """
+        <div class="form-group">
+            <form>
+                <Input type="email" id="EmailInput" text="Email Input:" placeholder="placeholder"/>
+                <Input type="password" id="PasswordInput" text="Password Input:" placeholder="placeholder"/>
+                <Submit id="SubmitButton" text="Submit"/>
+            </form>
+        </div>
+        """
+
+components = [EmailPassword, FormControl().components]
+```
+
 - #### Page Heading
 
   A simple page heading.
+
+```python
+from Lemon.components import Component
+
+class PageHeading(Component):
+    name = "PageHeading"
+
+    def item(props: dict):
+        return f"""
+        <div style="background-color: {props["color"]}" id="top" class="container-fluid">
+            <h1 class="page-heading">{props["text"]}</h1>
+        </div>
+        """
+
+components = [PageHeading]
+```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
