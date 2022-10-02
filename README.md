@@ -35,6 +35,8 @@
 
 This project is to make your lives easier with lemon, this is also my **Hacktoberfest** project.
 
+Lemon 🍋 : https://github.com/Sas2k/Lemon
+
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
 ### Installing
