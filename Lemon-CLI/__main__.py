@@ -12,7 +12,9 @@ components_list = {
     'app': open(file_directory + '/components/BaseApp.py', 'r').read(),
     'form': open(file_directory + '/components/Form/Form.py', 'r').read(),
     'email-password-input': open(file_directory + '/components/Form/email.py', 'r').read(),
-    'page-heading': open(file_directory + '/components/Heading/PageHeading.py', 'r').read()
+    'page-heading': open(file_directory + '/components/Heading/PageHeading.py', 'r').read(),
+    'article': open(file_directory + '/components/Page/Article.py', 'r').read(),
+    'footer': open(file_directory + '/components/Page/Footer.py', 'r').read()
 }
 
 def main():
