@@ -14,7 +14,8 @@ components_list = {
     'email-password-input': open(file_directory + '/components/Form/email.py', 'r').read(),
     'page-heading': open(file_directory + '/components/Heading/PageHeading.py', 'r').read(),
     'article': open(file_directory + '/components/Page/Article.py', 'r').read(),
-    'footer': open(file_directory + '/components/Page/Footer.py', 'r').read()
+    'footer': open(file_directory + '/components/Page/Footer.py', 'r').read(),
+    'navbar': open(file_directory + '/components/Heading/Navbar.py', 'r').read(),
 }
 
 def main():
