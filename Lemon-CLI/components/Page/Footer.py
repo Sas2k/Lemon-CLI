@@ -9,11 +9,11 @@ class Footer(Component):
         # user defines order of subitems
         for key in props.keys():
             if key == "footerAuthor":
-                _subitems.append(f"Author: {props["footerAuthor"]}" if "footerAuthor" in props)
+                _subitems.append(f"Author: {props['footerAuthor']}" if "footerAuthor" in props else "")
             elif key == "footerEmail":
-                _subitems.append(f"<a href='mailto:{props["footerEmail"]}'>{props["footerEmail"]}</a>")
+                _subitems.append(f"<a href='mailto:{props['footerEmail']}'>{props['footerEmail']}</a>")
             elif key == "footerCopyright":
-                _subitems.append(f"&copy; {props["footerCopyright"]}")
+                _subitems.append(f"&copy; {props['footerCopyright']}")
 
         return f"""
         <footer style="background-color: {props["backgroundColor"]}">

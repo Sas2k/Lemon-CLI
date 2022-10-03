@@ -4,7 +4,7 @@ long_description = open('README.md', "r", encoding="utf-8").read()
 
 setup(
     name="Lemon-CLI",
-    version="1.0.1",
+    version="1.2.0",
     packages=find_packages(),
     install_requires=["Lemon-Library"],
     author="Sasen Perera",

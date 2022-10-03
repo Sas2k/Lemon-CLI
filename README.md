@@ -218,9 +218,13 @@ class Footer(Component):
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [Python](https://www.python.org)
+- [Lemon] (https://github.com/Sas2k/Lemon)
+
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@Sas2k](https://github.com/Sas2k) - Idea & Initial work
+<a href="https://github.com/Sas2k/Lemon-CLI/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Sas2k/Lemon-CLI" />
+</a>
 
 See also the list of [contributors](https://github.com/Sas2k/Lemon-CLI/contributors) who participated in this project.
 
