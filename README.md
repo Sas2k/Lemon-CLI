@@ -271,7 +271,7 @@ components = [Navbar]
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [Python](https://www.python.org)
-- [Lemon] (https://github.com/Sas2k/Lemon)
+- [Lemon](https://github.com/Sas2k/Lemon)
 
 ## ✍️ Authors <a name = "authors"></a>
 
