@@ -2,11 +2,15 @@ from setuptools import setup, find_packages
 
 long_description = open('README.md', "r", encoding="utf-8").read()
 
+requirements = list()
+with open("requirements.txt") as fhand:
+    requirements = [l.rpartition('==')[0] for l in fhand]
+
 setup(
     name="Lemon-CLI",
     version="1.3.0",
     packages=find_packages(),
-    install_requires=["Lemon-Library"],
+    install_requires=requirements,
     author="Sasen Perera",
     author_email="sas8.communications@gmail.com",
     description="A Component generator for Lemon",
