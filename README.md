@@ -68,205 +68,32 @@ components/
 
 - #### App
   
-  A base app in Lemon.
-
-```python
-from Lemon.components import Component
-from Lemon.Server import server
-
-Root = Component("App")
-App = server.Server(None)
-
-class Index(Component):
-    name = "Index"
-    def item(props: dict):
-        return "<h1>Hello World!</h1>"
-
-Root.add(Index)
-
-@App.route("/")
-def index(request, response):
-    response.text = Root.render("<Index/>")
-
-App.run()
-```
+  A [Base App](Lemon-CLI/components/BaseApp.py) in Lemon.
 
 - #### Form
   
-  A basic form.
-
-```python
-from Lemon.components import Component
-from Lemon.ui.forms import FormControl
-
-class Form(Component):
-    name = "Form"
-
-    def item(props: dict):
-        return """
-        <form>
-            <div class="form-group">
-                <Input type="text" id="TextInput" text="Text Input:" placeholder="placeholder"/>
-                <Select id="SelectInput" text="Select Input:" options="Option 1,Option 2,Option 3"//>
-                <Checkbox id="CheckboxInput" text="Checkbox Input"/>
-                <Submit id="SubmitButton" text="Submit"/>
-            </div>
-        </form>
-        """
-
-components = [Form, FormControl().components]
-```
+  A [Basic Form](Lemon-CLI/components/Form/Form.py).
 
 - #### EmailPassword
 
-  A form asking for Email and Password.
-
-```python
-from Lemon.components import Component
-from Lemon.ui.forms import FormControl
-
-class EmailPassword(Component):
-    name = "EmailPassword"
-
-    def item(props: dict):
-        return """
-        <div class="form-group">
-            <form>
-                <Input type="email" id="EmailInput" text="Email Input:" placeholder="placeholder"/>
-                <Input type="password" id="PasswordInput" text="Password Input:" placeholder="placeholder"/>
-                <Submit id="SubmitButton" text="Submit"/>
-            </form>
-        </div>
-        """
-
-components = [EmailPassword, FormControl().components]
-```
-
-- #### Page Heading
-
-  A simple page heading.
-
-```python
-from Lemon.components import Component
-
-class PageHeading(Component):
-    name = "PageHeading"
-
-    def item(props: dict):
-        return f"""
-        <div style="background-color: {props["color"]}" id="top" class="container-fluid">
-            <h1 class="page-heading">{props["text"]}</h1>
-        </div>
-        """
-
-components = [PageHeading]
-```
-
-- #### Article
-
-  Simple article container.
-
-```py
-from Lemon.components import Component
-
-class Article(Component):
-    name = "Article"
-
-    def item(props: dict):
-        return f"""
-        <article style="background-color: {props["backgroundColor"]}" class="container-fluid">
-            <h2 class="article-heading">{props["articleHeading"]}</h2>
-            <span class="article-author"><i>Author: {props["articleAuthor"]}</i></span>
-            <p class="article-body">{props["articleBody"]}</p>
-        </article>
-        """
-
-components = [Article]
-```
-
-- #### Footer
-
-  Conditionally rendered footer with author, email, and copyright fields
-
-```py
-from Lemon.components import Component
-
-class Footer(Component):
-    name = "Footer"
-
-    def item(props: dict):
-        _subitems = []
-
-        # user defines order of subitems
-        for key in props.keys():
-            if key == "footerAuthor":
-                _subitems.append(f"Author: {props["footerAuthor"]}" if "footerAuthor" in props)
-            elif key == "footerEmail":
-                _subitems.append(f"<a href='mailto:{props["footerEmail"]}'>{props["footerEmail"]}</a>")
-            elif key == "footerCopyright":
-                _subitems.append(f"&copy; {props["footerCopyright"]}")
-
-        return f"""
-        <footer style="background-color: {props["backgroundColor"]}">
-            <p>
-                {_subitems.join(" | " or props["footerDelimiter"])}
-            </p>
-        </footer>
-        """
-```
+  A [Form](Lemon-CLI/components/Form/email.py) asking for Email and Password.
 
 - #### NavBar
 
-A simple Navigation Bar
+  A simple [Navigation Bar](Lemon-CLI/components/Heading/Navbar.py).
 
-```python
-from Lemon.components import Component
+- #### Page Heading
 
-class Navbar(Component):
-    name = 'Navbar'
+  A simple [Page Heading](Lemon-CLI/components/Heading/PageHeading.py).
 
-    def item(props: dict):
-        return f"""
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">NavBar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                </div>
-            </div>
-        </nav>
-        """
+- #### Article
 
-components = [Navbar]
-```
+  Simple [Article Container](Lemon-CLI/components/Page/Article.py).
+
+- #### Footer
+
+  Conditionally rendered [Footer](Lemon-CLI/components/Page/Footer.py) with author, email, and copyright fields.
+
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
