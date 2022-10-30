@@ -1,8 +1,4 @@
-<p align="center">
- <h1 style="text-align: center;">Lemon-CLI 🍋📀</a>
-</p>
-
-<h3 align="center">Lemon-CLI</h3>
+<h1 align="center">Lemon-CLI</h1>
 
 <div align="center">
 
